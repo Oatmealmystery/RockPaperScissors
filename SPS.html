@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Steen Papier Schaar</title>
+    <link rel="stylesheet" href="SPS.css">
+</head>
+<body>
+    <h3><b></span>Computer:<span id="computer"></span></b></h3>
+    <h3><b>Jouw keuze:<span id="human"></span></b></h3>
+    <h3><b></span>Uitkomst:<span id="result"></span></b></h3>
+    
+    <div>
+       <button type="button" id="steen">Steen</button>
+       <button type="button" id="papier">Papier</button>
+       <button type="button" id="schaar">Schaar</button>
+    </div>
+<script>
+
+  const humanOutput = document.querySelector("#human");
+  humanOutput.innerHTML = "Jouw keuze komt hier, maak je keuze!";
+
+  
+  const computerOutput = document.querySelector("#computer");
+  const resultOutput = document.querySelector("#result");
+
+
+  const steenBtn = document.querySelector("#steen");
+  const papierBtn = document.querySelector("#papier");
+  const schaarBtn = document.querySelector("#schaar");
+
+  steenBtn.addEventListener("click", function(event) {
+    humanChoice = event.target.id;
+    humanOutput.innerHTML = humanChoice;
+  });
+  papierBtn.addEventListener("click", function(event) {
+    humanChoice = event.target.id;
+    humanOutput.innerHTML = humanChoice;
+  });
+  schaarBtn.addEventListener("click", function(event) {
+    humanChoice = event.target.id;
+    humanOutput.innerHTML = humanChoice;
+  });
+
+
+  let humanChoice = "";
+  let computerChoice = "";
+
+humanOutput.innerHTML = "Jouw keuze komt hier, maak je keuze!";
+
+steenBtn.addEventListener('click', function(event) {
+humanChoice = event.target. id; 
+humanOutput.innerHTML = humanChoice;
+const randomNumber = Math.floor(Math.random() * 3) + 1; 
+if(randomNumber === 1) {
+computerChoice = 'steen';
+}
+if (randomNumber === 2 ) {
+computerChoice = 'schaar ';
+}
+if (randomNumber === 3 ) {
+computerChoice = 'papier';
+}
+computerOutput.innerHTML = computerChoice;
+
+if (humanChoice === computerChoice) {
+    resultOutput.innerHTML = "Gelijkspel";
+}
+
+else if (
+    (humanChoice === "steen" && computerChoice === "schaar") ||
+    (humanChoice === "papier" && computerChoice === "steen") ||
+    (humanChoice === "schaar" && computerChoice === "papier")
+) {
+    resultOutput.innerHTML = "Jij wint";
+}
+
+else {
+    resultOutput.innerHTML = "Computer wint";
+}
+
+});
+
+papierBtn.addEventListener('click', function(event) {
+humanChoice = event.target. id; 
+humanOutput.innerHTML = humanChoice;
+const randomNumber = Math.floor(Math.random() * 3) + 1; 
+if(randomNumber === 1) {
+computerChoice = 'steen';
+}
+if (randomNumber === 2 ) {
+computerChoice = 'schaar ';
+}
+if (randomNumber === 3 ) {
+computerChoice = 'papier';
+}
+computerOutput.innerHTML = computerChoice;
+
+if (humanChoice === computerChoice) {
+    resultOutput.innerHTML = "Gelijkspel";
+}
+
+else if (
+    (humanChoice === "steen" && computerChoice === "schaar") ||
+    (humanChoice === "papier" && computerChoice === "steen") ||
+    (humanChoice === "schaar" && computerChoice === "papier")
+) {
+    resultOutput.innerHTML = "Jij wint";
+}
+
+else {
+    resultOutput.innerHTML = "Computer wint";
+}
+
+});
+
+schaarBtn.addEventListener('click', function(event) {
+humanChoice = event.target. id; 
+humanOutput.innerHTML = humanChoice;
+const randomNumber = Math.floor(Math.random() * 3) + 1; 
+if(randomNumber === 1) {
+computerChoice = 'steen';
+}
+if (randomNumber === 2 ) {
+computerChoice = 'schaar ';
+}
+if (randomNumber === 3 ) {
+computerChoice = 'papier';
+}
+computerOutput.innerHTML = computerChoice;
+
+if (humanChoice === computerChoice) {
+    resultOutput.innerHTML = "Gelijkspel";
+}
+
+else if (
+    (humanChoice === "steen" && computerChoice === "schaar") ||
+    (humanChoice === "papier" && computerChoice === "steen") ||
+    (humanChoice === "schaar" && computerChoice === "papier")
+) {
+    resultOutput.innerHTML = "Jij wint";
+}
+
+else {
+    resultOutput.innerHTML = "Computer wint";
+}
+
+});
+
+</script>
+</body>
+</html>
