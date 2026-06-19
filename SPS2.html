@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Steen Papier Schaar</title>
+    <link rel="stylesheet" href="SPS.css">
+</head>
+<body>
+
+    <h3><b>Computer: <span id="computer"></span></b></h3>
+    <h3><b>Jouw keuze: <span id="human"></span></b></h3>
+    <h3><b>Uitkomst: <span id="result"></span></b></h3>
+
+    <h3><b>Score Speler: <span id="playerScore">0</span></b></h3>
+    <h3><b>Score Computer: <span id="computerScore">0</span></b></h3>
+
+    <img id="winImage" src="https://thumbs.dreamstime.com/b/cartoon-office-celebration-15570488.jpg" 
+     style="display:none; max-width:400px;">
+
+<img id="loseImage" src="https://www.opleidingvertrouwenspersoon.nl/wp-content/uploads/2023/04/verlies-en-rouw1klein.jpg" 
+     style="display:none; max-width:400px;">
+
+    <div>
+        <button type="button" id="steen">Steen</button>
+        <button type="button" id="papier">Papier</button>
+        <button type="button" id="schaar">Schaar</button>
+    </div>
+
+<script>
+
+    const humanOutput = document.querySelector("#human");
+    const computerOutput = document.querySelector("#computer");
+    const resultOutput = document.querySelector("#result");
+
+
+    const playerScoreOutput = document.querySelector("#playerScore");
+    const computerScoreOutput = document.querySelector("#computerScore");
+
+    const buttons = document.querySelectorAll("button");
+
+
+    humanOutput.innerHTML = "Jouw keuze komt hier, maak je keuze!";
+
+    let humanChoice = "";
+    let computerChoice = "";
+    let playerScore = 0;
+    let computerScore = 0;
+
+    buttons.forEach(function(button) {
+        button.addEventListener("click", playGame);
+    });
+
+
+    function playGame(event) {
+
+        humanChoice = event.target.id;
+        humanOutput.innerHTML = humanChoice;
+        const randomNumber = Math.floor(Math.random() * 3) + 1;
+
+
+        switch(randomNumber) {
+            case 1:
+                computerChoice = "steen";
+                break;
+
+            case 2:
+                computerChoice = "papier";
+                break;
+
+            case 3:
+                computerChoice = "schaar";
+                break;
+        }
+
+        computerOutput.innerHTML = computerChoice;
+
+        checkWinner();
+    }
+
+   function checkWinner() {
+
+const winImage = document.querySelector("#winImage");
+const loseImage = document.querySelector("#loseImage");
+
+    winImage.style.display = "none";
+    loseImage.style.display = "none";
+
+    if (humanChoice === computerChoice) {
+        resultOutput.innerHTML = "Gelijkspel";
+    }
+
+    else if (
+        (humanChoice === "steen" && computerChoice === "schaar") ||
+        (humanChoice === "papier" && computerChoice === "steen") ||
+        (humanChoice === "schaar" && computerChoice === "papier")
+    ) {
+
+        resultOutput.innerHTML = "Jij wint";
+
+        playerScore++;
+        playerScoreOutput.innerHTML = playerScore;
+
+        winImage.style.display = "block";
+        alert("Jij wint!");
+    }
+
+    else {
+
+        resultOutput.innerHTML = "Computer wint";
+
+        computerScore++;
+        computerScoreOutput.innerHTML = computerScore;
+
+        loseImage.style.display = "block";
+        alert("Jij verliest....");
+    }
+}
+
+</script>
+
+</body>
+</html>
